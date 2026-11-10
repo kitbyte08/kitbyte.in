@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6558f5">
+<title>Document Editor | KidByte</title>
+<link rel="stylesheet" href="document.css">
+</head>
+<body>
+<style id="pg"></style>
+
+<header class="top">
+  <a class="brand" href="index.html"><span class="logo">K</span><span>Kid<b>Byte</b><small>Document Editor</small></span></a>
+  <input id="docTitle" value="Untitled document" aria-label="Document title">
+  <div class="acts">
+    <button data-act="new">New</button>
+    <button data-act="open">Open</button>
+    <button data-act="save">Save ⬇</button>
+    <button data-act="print" class="pri">Print / PDF</button>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab on" data-tab="home">Home</button>
+  <button class="tab" data-tab="insert">Insert</button>
+  <button class="tab" data-tab="layout">Layout</button>
+  <button class="tab" data-tab="view">View</button>
+</nav>
+
+<div class="ribbon">
+  <div class="panel on" id="p-home">
+    <div class="grp"><div class="row">
+      <button data-cmd="undo" title="Undo (Ctrl+Z)">↶</button><button data-cmd="redo" title="Redo (Ctrl+Y)">↷</button>
+      <button data-cmd="cut" title="Cut">✂</button><button data-cmd="copy" title="Copy">⎘</button>
+      <button data-act="paint" title="Format Painter">🖌</button></div><span class="gl">Clipboard</span></div>
+    <div class="grp"><div class="row">
+      <select id="fontName" title="Font"><option>Arial</option><option>Times New Roman</option><option>Georgia</option><option>Verdana</option><option>Trebuchet MS</option><option>Tahoma</option><option>Courier New</option><option>Comic Sans MS</option></select>
+      <select id="fontSize" title="Size"><option>10</option><option>12</option><option>14</option><option selected>16</option><option>18</option><option>20</option><option>24</option><option>28</option><option>32</option><option>40</option><option>48</option><option>72</option></select>
+      <select id="block" title="Style"><option value="p">Normal</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="blockquote">Quote</option><option value="pre">Code</option></select></div>
+      <div class="row">
+      <button data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button><button data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+      <button data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button><button data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>
+      <button data-cmd="subscript" title="Subscript">x₂</button><button data-cmd="superscript" title="Superscript">x²</button>
+      <label class="clr" title="Text colour">A<input type="color" id="fore" value="#000000"></label>
+      <label class="clr hl" title="Highlight">🖍<input type="color" id="back" value="#fff176"></label>
+      <button data-cmd="removeFormat" title="Clear formatting">⌫</button></div><span class="gl">Font</span></div>
+    <div class="grp"><div class="row">
+      <button data-cmd="justifyLeft" title="Align left">⯇</button><button data-cmd="justifyCenter" title="Centre">≡</button>
+      <button data-cmd="justifyRight" title="Align right">⯈</button><button data-cmd="justifyFull" title="Justify">☰</button>
+      <button data-cmd="insertUnorderedList" title="Bullets">•≡</button><button data-cmd="insertOrderedList" title="Numbering">1.</button>
+      <button data-cmd="outdent" title="Decrease indent">⇤</button><button data-cmd="indent" title="Increase indent">⇥</button>
+      <select id="lh" title="Line spacing"><option value="">Spacing</option><option>1</option><option>1.15</option><option>1.5</option><option>2</option><option>2.5</option></select></div><span class="gl">Paragraph</span></div>
+    <div class="grp"><div class="row"><button data-act="find">🔍 Find &amp; Replace</button><button data-cmd="selectAll">Select all</button></div><span class="gl">Editing</span></div>
+  </div>
+
+  <div class="panel" id="p-insert">
+    <div class="grp"><div class="row">
+      <button data-act="img">🖼 From my computer</button><button data-act="imgSearch">🔎 Search Google Images</button></div>
+      <div class="row"><select id="imgW" title="Picture size"><option>Picture size</option><option value="25">25%</option><option value="50">50%</option><option value="75">75%</option><option value="100">100%</option></select>
+      <select id="imgWrap" title="Picture position"><option>Picture position</option><option value="none">In line (with text)</option><option value="left">Float left</option><option value="right">Float right</option></select></div><span class="gl">Pictures</span></div>
+    <div class="grp"><div class="row">
+      <button data-act="shapes">◆ Shapes</button><button data-act="icons">🔖 Icons</button><button data-act="stickers">🎉 Stickers</button></div><span class="gl">Shapes, icons &amp; stickers</span></div>
+    <div class="grp"><div class="row"><button data-act="textbox">🔤 Text box</button></div><span class="gl">Text box</span></div>
+    <div class="grp"><div class="row">
+      <select id="chartTheme" title="Chart colour theme"><option value="purple">Purple</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="sunset">Sunset</option><option value="candy">Candy</option><option value="mono">Mono</option></select>
+      <button data-act="charts">📊 Charts &amp; Diagrams</button></div><span class="gl">Charts &amp; diagrams</span></div>
+    <div class="grp"><div class="row"><button data-act="table">▦ Table</button><button data-act="row">+ Row</button><button data-act="col">+ Column</button><button data-act="delTable">🗑 Table</button></div><span class="gl">Tables</span></div>
+    <div class="grp"><div class="row"><button data-act="hr">― Line</button><button data-act="date">📅 Date</button>
+      <select id="sym" title="Symbols"><option>Ω Symbol</option><option>©</option><option>®</option><option>™</option><option>€</option><option>£</option><option>₹</option><option>°</option><option>±</option><option>×</option><option>÷</option><option>≠</option><option>≤</option><option>≥</option><option>∞</option><option>π</option><option>√</option><option>←</option><option>→</option><option>★</option><option>♥</option><option>✓</option></select></div><span class="gl">Elements</span></div>
+  </div>
+
+  <div class="panel" id="p-layout">
+    <div class="grp"><div class="row">
+      <select id="margin" title="Margins"><option value="48">Narrow margins</option><option value="96" selected>Normal margins</option><option value="144">Wide margins</option></select>
+      <select id="orient" title="Orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select>
+      <label class="clr" title="Page colour">🎨<input type="color" id="pageColor" value="#ffffff"></label></div><span class="gl">Page setup (A4) — applies to every page</span></div>
+    <div class="grp"><div class="row">
+      <button data-act="hf">📄 Header &amp; Footer</button>
+      <select id="border" title="Page border"><option value="none">No border</option><option value="simple">Simple line</option><option value="rounded">Rounded</option><option value="double">Double line</option><option value="shadow">Soft shadow</option></select></div><span class="gl">Headers, footers &amp; borders — applies to every page</span></div>
+  </div>
+
+  <div class="panel" id="p-view">
+    <div class="grp"><div class="row"><button data-act="find">🔍 Find &amp; Replace</button><button data-act="print">🖨 Print preview</button></div><span class="gl">Tools</span></div>
+  </div>
+</div>
+
+<div id="findBar" class="findbar">
+  <input id="fIn" placeholder="Find…"><input id="rIn" placeholder="Replace with…">
+  <button id="fNext">Find next</button><button id="fRep">Replace</button><button id="fAll">Replace all</button><button data-act="find">✕</button>
+</div>
+
+<main id="stage" class="stage"><div id="sheet" class="sheet">
+  <div id="editor" contenteditable="true" spellcheck="true" aria-label="Document"><p><br></p></div>
+  <div id="pageDeco" aria-hidden="true"></div>
+</div></main>
+
+<footer class="status">
+  <span>Page <b id="sPage">1</b> of <b id="sPages">1</b></span><span><b id="sWords">0</b> words</span><span><b id="sChars">0</b> characters</span>
+  <div class="zoomBar">
+    <button id="zOut" title="Zoom out">−</button>
+    <input type="range" id="zoom2" min="50" max="200" value="100" title="Zoom">
+    <span id="zoomPct">100%</span>
+    <button id="zIn" title="Zoom in">+</button>
+    <button id="zFit" title="Fit to screen">⤢</button>
+  </div>
+</footer>
+
+<div id="picker" class="picker">
+  <div class="pickerHead"><b id="pickerTitle">Shapes</b><button id="pickerClose">✕</button></div>
+  <div id="pickerGrid" class="pickerGrid"></div>
+</div>
+<div id="pickerBack" class="pickerBack"></div>
+
+<div id="hfModal" class="modal">
+  <div class="modalCard">
+    <h3>Header, footer &amp; page numbers</h3>
+    <label>Header text<input id="hfHeader" placeholder="e.g. My Project"></label>
+    <label>Footer text<input id="hfFooter" placeholder="e.g. Your name"></label>
+    <label class="chk"><input type="checkbox" id="hfPageNum"> Show page numbers in footer</label>
+    <div class="modalActs"><button id="hfCancel">Cancel</button><button id="hfOk" class="pri">Apply</button></div>
+  </div>
+</div>
+<div id="modalBack" class="pickerBack"></div>
+
+<input type="file" id="imgIn" accept="image/*" hidden>
+<input type="file" id="fileIn" accept=".html,.htm,.txt" hidden>
+<div id="toast" class="toast" role="status"></div>
+<script src="document.js"></script>
+</body>
+</html>

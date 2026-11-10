@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F8FF">
+  <meta name="description" content="KidByte is a playful digital playground for students to practise typing, write documents, work with spreadsheets, and create digital art.">
+  <title>KidByte — Learn, Explore, Create</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <div class="app" id="home">
+    <aside class="sidebar" aria-label="KidByte workspace">
+      <a class="brand" href="index.html" aria-label="KidByte home">
+        <span class="brand-icon" aria-hidden="true">K</span>
+        <span class="brand-copy">
+          <span class="brand-name">Kid<span>Byte</span></span>
+          <span class="brand-tagline">YOUR DIGITAL PLAYGROUND</span>
+        </span>
+      </a>
+
+      <nav class="workspace-nav" aria-label="Main navigation">
+        <p class="menu-label">YOUR WORKSPACE</p>
+        <ul class="nav-list">
+          <li><a class="nav-button active" href="index.html" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>Home</span></a></li>
+          <li><a class="nav-button" href="typing.html"><span class="nav-icon" aria-hidden="true">⌨️</span><span>Typing Master</span><span class="nav-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="nav-button" href="document.html"><span class="nav-icon" aria-hidden="true">📝</span><span>Document Editor</span><span class="nav-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="nav-button" href="spreadsheet.html"><span class="nav-icon" aria-hidden="true">📊</span><span>Spreadsheet Lab</span><span class="nav-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="nav-button" href="paint.html"><span class="nav-icon" aria-hidden="true">🎨</span><span>Paint Studio</span><span class="nav-arrow" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-orbit" aria-hidden="true"><span>✦</span><span>✧</span><span>🦊</span></div>
+          <h2>Curiosity looks good on you.</h2>
+          <p>Try a tool, make a little progress, and see what you can create.</p>
+          <a class="help-button" href="#toolsSection">Explore your tools <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="sidebar-note"><span class="status-dot" aria-hidden="true"></span> A friendly space to learn at your pace</p>
+      </div>
+    </aside>
+
+    <main class="main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-left">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> YOUR CREATIVE SPACE</p>
+          <h1>Hey, Explorer! <span class="wave" aria-hidden="true">👋</span></h1>
+          <p class="topbar-subtitle">Small steps today. Brilliant things tomorrow.</p>
+        </div>
+        <div class="topbar-right">
+          <span class="free-badge"><span aria-hidden="true">✦</span> Always free</span>
+          <div class="avatar" aria-label="KidByte friendly robot mascot" role="img">🤖</div>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <span class="hero-kicker"><span aria-hidden="true">✦</span> WELCOME TO KIDBYTE</span>
+          <h2 id="heroTitle">Your ideas deserve<br class="desktop-break"> a place to <span>grow.</span></h2>
+          <p>Build useful digital skills by doing. Practise typing, write your own documents, make sense of data, or turn your imagination into art.</p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#toolsSection">Explore tools <span aria-hidden="true">→</span></a>
+            <button class="button button-glass" id="randomButton" type="button"><span aria-hidden="true">🎲</span> Surprise me</button>
+          </div>
+          <div class="hero-footnote"><span class="sparkle-check" aria-hidden="true">✓</span> No pressure. No perfect answers. Just progress.</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-halo"></div>
+          <div class="art-star star-one">✦</div>
+          <div class="art-star star-two">✧</div>
+          <div class="art-star star-three">✳</div>
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="float-card float-card-left"><span class="float-icon">⌨️</span><span><b>Practise</b><small>one key at a time</small></span></div>
+          <div class="float-card float-card-right"><span class="float-icon">🎨</span><span><b>Create</b><small>your own way</small></span></div>
+          <div class="robot-stage"><div class="robot-antenna"></div><div class="robot-face"><span class="robot-eye eye-left"></span><span class="robot-eye eye-right"></span><span class="robot-cheek cheek-left"></span><span class="robot-cheek cheek-right"></span><span class="robot-mouth"></span></div><div class="robot-body"><span class="robot-heart">♥</span><span class="robot-button button-a"></span><span class="robot-button button-b"></span></div></div>
+          <div class="art-base"></div>
+        </div>
+      </section>
+
+      <section class="quick-strip" aria-label="What you can do on KidByte">
+        <div class="quick-item"><span class="quick-icon quick-purple" aria-hidden="true">⌨</span><span><b>Practise</b><small>Build confidence</small></span></div>
+        <span class="quick-divider" aria-hidden="true"></span>
+        <div class="quick-item"><span class="quick-icon quick-pink" aria-hidden="true">✍</span><span><b>Make</b><small>Bring ideas to life</small></span></div>
+        <span class="quick-divider" aria-hidden="true"></span>
+        <div class="quick-item"><span class="quick-icon quick-green" aria-hidden="true">▦</span><span><b>Discover</b><small>Learn by trying</small></span></div>
+      </section>
+
+      <section class="tools-section" id="toolsSection" aria-labelledby="toolsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="section-eyebrow">PICK YOUR NEXT ADVENTURE</p>
+            <h2 id="toolsTitle">Your creative toolbox <span aria-hidden="true">🧰</span></h2>
+            <p class="section-description">Choose a tool and start making something of your own.</p>
+          </div>
+          <span class="tool-count"><strong>04</strong><span>learning tools</span></span>
+        </div>
+
+        <div class="tools-grid">
+          <a class="tool-card card-blue" href="typing.html" data-tool="Typing Master" aria-label="Open Typing Master">
+            <div class="tool-card-top"><span class="tool-icon" aria-hidden="true">⌨️</span><span class="tool-card-arrow" aria-hidden="true">↗</span></div>
+            <div class="tool-card-content"><div class="card-meta"><span class="meta-dot"></span> KEYBOARD SKILLS</div><h3>Typing Master</h3><p>Get comfortable with your keyboard, improve accuracy, and build typing speed one lesson at a time.</p></div>
+            <div class="card-bottom"><span>Practise typing</span><span class="card-cta" aria-hidden="true">→</span></div>
+          </a>
+
+          <a class="tool-card card-pink" href="document.html" data-tool="Document Editor" aria-label="Open Document Editor">
+            <div class="tool-card-top"><span class="tool-icon" aria-hidden="true">📝</span><span class="tool-card-arrow" aria-hidden="true">↗</span></div>
+            <div class="tool-card-content"><div class="card-meta"><span class="meta-dot"></span> WRITE & ORGANISE</div><h3>Document Editor</h3><p>Turn your thoughts into neat documents, school assignments, stories, and well-formatted pages.</p></div>
+            <div class="card-bottom"><span>Write something</span><span class="card-cta" aria-hidden="true">→</span></div>
+          </a>
+
+          <a class="tool-card card-green" href="spreadsheet.html" data-tool="Spreadsheet Lab" aria-label="Open Spreadsheet Lab">
+            <div class="tool-card-top"><span class="tool-icon" aria-hidden="true">📊</span><span class="tool-card-arrow" aria-hidden="true">↗</span></div>
+            <div class="tool-card-content"><div class="card-meta"><span class="meta-dot"></span> NUMBERS & LOGIC</div><h3>Spreadsheet Lab</h3><p>Organise information, explore formulas, calculate results, and turn data into clear charts.</p></div>
+            <div class="card-bottom"><span>Explore data</span><span class="card-cta" aria-hidden="true">→</span></div>
+          </a>
+
+          <a class="tool-card card-yellow" href="paint.html" data-tool="Paint Studio" aria-label="Open Paint Studio">
+            <div class="tool-card-top"><span class="tool-icon" aria-hidden="true">🎨</span><span class="tool-card-arrow" aria-hidden="true">↗</span></div>
+            <div class="tool-card-content"><div class="card-meta"><span class="meta-dot"></span> ART & IMAGINATION</div><h3>Paint Studio</h3><p>Experiment with colours, sketch an idea, and make digital artwork that feels like you.</p></div>
+            <div class="card-bottom"><span>Make some art</span><span class="card-cta" aria-hidden="true">→</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="closing-banner" aria-label="A little encouragement">
+        <div class="closing-icon" aria-hidden="true">🌱</div>
+        <div><h2>Every expert was once a beginner.</h2><p>Pick one small thing to try today. That is how your skills grow.</p></div>
+        <a href="#toolsSection" class="closing-link">Let's begin <span aria-hidden="true">→</span></a>
+        <span class="closing-decoration decoration-one" aria-hidden="true">✦</span><span class="closing-decoration decoration-two" aria-hidden="true">✧</span>
+      </section>
+
+      <footer class="footer">
+        <p>Made with <span aria-label="love">💜</span> for curious minds.</p>
+        <p><strong>KidByte</strong><span class="footer-separator">·</span> Learn. Explore. Create.</p>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

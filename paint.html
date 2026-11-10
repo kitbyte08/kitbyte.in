@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F7F8FF">
+    <title>Paint Studio | KidByte</title>
+    <link rel="stylesheet" href="paint.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <!-- TOP HEADER -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon" aria-hidden="true">🎨</div>
+            <div>
+                <div class="brand-name">Kid<span>Byte</span></div>
+                <div class="brand-tagline">PAINT STUDIO</div>
+            </div>
+        </div>
+
+        <div class="topbar-actions">
+            <a href="index.html" class="dashboard-link">← Dashboard</a>
+            <button id="saveImgBtn" class="primary-action">💾 Save Artwork</button>
+        </div>
+    </header>
+
+    <!-- TOOLBAR RIBBON -->
+    <section class="ribbon-toolbar" aria-label="Drawing Tools">
+        
+        <!-- TOOLS GROUP -->
+        <div class="tool-group">
+            <span class="tool-group-title">Tools</span>
+            <div class="tool-row">
+                <button class="tool-btn active" data-tool="brush" title="Brush">✏️ Brush</button>
+                <button class="tool-btn" data-tool="eraser" title="Eraser">🧹 Eraser</button>
+                <button class="tool-btn" data-tool="fill" title="Paint Bucket Fill">🪣 Fill</button>
+                <button class="tool-btn" data-tool="text" title="Add Text">🔤 Text</button>
+            </div>
+        </div>
+
+        <!-- EXTENDED SHAPES GROUP (8 SHAPES) -->
+        <div class="tool-group">
+            <span class="tool-group-title">Shapes</span>
+            <div class="tool-row shapes-grid">
+                <button class="tool-btn" data-tool="line" title="Straight Line">📏 Line</button>
+                <button class="tool-btn" data-tool="rectangle" title="Rectangle">⬛ Rect</button>
+                <button class="tool-btn" data-tool="circle" title="Circle">⭕ Circle</button>
+                <button class="tool-btn" data-tool="triangle" title="Triangle">🔺 Triangle</button>
+                <button class="tool-btn" data-tool="diamond" title="Diamond">🔷 Diamond</button>
+                <button class="tool-btn" data-tool="star" title="Star">⭐ Star</button>
+                <button class="tool-btn" data-tool="arrow" title="Right Arrow">➡️ Arrow</button>
+                <button class="tool-btn" data-tool="heart" title="Heart">💖 Heart</button>
+            </div>
+        </div>
+
+        <!-- BRUSH SIZE & ACTIONS -->
+        <div class="tool-group">
+            <span class="tool-group-title">Options & History</span>
+            <div class="tool-row">
+                <label class="size-label">
+                    Size: <span id="sizeVal">5px</span>
+                    <input type="range" id="brushSize" min="1" max="50" value="5">
+                </label>
+                <button class="action-btn" id="undoBtn" title="Undo">↶ Undo</button>
+                <button class="action-btn" id="clearBtn" title="Clear Canvas">🗑️ Clear</button>
+            </div>
+        </div>
+
+        <!-- COLOR PALETTE -->
+        <div class="tool-group color-group">
+            <span class="tool-group-title">Colors</span>
+            <div class="tool-row colors-row">
+                <button class="color-swatch active" style="background: #242541;" data-color="#242541"></button>
+                <button class="color-swatch" style="background: #6558F5;" data-color="#6558F5"></button>
+                <button class="color-swatch" style="background: #E84545;" data-color="#E84545"></button>
+                <button class="color-swatch" style="background: #2E8B57;" data-color="#2E8B57"></button>
+                <button class="color-swatch" style="background: #FFB703;" data-color="#FFB703"></button>
+                <button class="color-swatch" style="background: #FB8500;" data-color="#FB8500"></button>
+                <button class="color-swatch" style="background: #9d4edd;" data-color="#9d4edd"></button>
+                <button class="color-swatch" style="background: #ff70a6;" data-color="#ff70a6"></button>
+                <button class="color-swatch" style="background: #FFFFFF; border: 1px solid var(--border);" data-color="#FFFFFF"></button>
+                
+                <label class="color-picker-label" title="Custom Color">
+                    🎨 <input type="color" id="customColorPicker" value="#242541">
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- MAIN CANVAS WORKSPACE (FIXED TOP MARGIN GAP) -->
+    <main class="canvas-workspace" id="canvasWorkspace">
+        <div class="canvas-sheet-wrapper" id="canvasWrapper">
+            <canvas id="paintCanvas" width="1000" height="600"></canvas>
+            <div class="canvas-handle handle-br"></div>
+            <div class="canvas-handle handle-r"></div>
+            <div class="canvas-handle handle-b"></div>
+        </div>
+    </main>
+
+    <!-- FOOTER / STATUS BAR WITH DEDICATED SHEET ZOOM CONTROLS -->
+    <footer class="statusbar">
+        <div class="status-left">
+            <span>✨ KidByte Paint Studio</span>
+            <span class="status-divider">•</span>
+            <span id="canvasDim">1000 × 600px</span>
+            <span class="status-divider">•</span>
+            <span id="canvasCoords">X: 0, Y: 0</span>
+        </div>
+
+        <div class="status-zoom-controls">
+            <button id="zoomOutBtn" class="zoom-btn" title="Zoom Out Sheet">−</button>
+            <input type="range" id="zoomSlider" min="20" max="300" value="100" title="Sheet Zoom Level">
+            <button id="zoomInBtn" class="zoom-btn" title="Zoom In Sheet">+</button>
+            <button id="zoomResetBtn" class="zoom-text-btn" title="Reset Sheet Zoom">100%</button>
+        </div>
+    </footer>
+
+</div>
+
+<!-- NOTIFICATION TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="paint.js"></script>
+</body>
+</html>

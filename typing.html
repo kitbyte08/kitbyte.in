@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F8FF">
+  <meta name="description" content="KidByte Typing Master — a focused, distraction-free typing practice app.">
+  <title>Typing Master | KidByte</title>
+  <link rel="stylesheet" href="typing.css">
+  <script src="typing.js" defer></script>
+</head>
+<body>
+  <header class="app-topbar">
+    <a class="brand" href="../../index.html" aria-label="Return to KidByte home">
+      <span class="brand-icon" aria-hidden="true">K</span>
+      <span class="brand-copy">
+        <span class="brand-name">Kid<span>Byte</span></span>
+        <small>Typing Master</small>
+      </span>
+    </a>
+
+    <div class="topbar-status" aria-label="Typing practice is ready">
+      <span class="status-light"></span>
+      <span>Practice workspace</span>
+    </div>
+
+    <div class="topbar-actions">
+      <label class="sound-toggle" for="typingSoundToggle" title="Turn typing sound effects on or off">
+        <span class="sound-icon" aria-hidden="true">🔊</span>
+        <span class="sound-label">Sound effects</span>
+        <input type="checkbox" id="typingSoundToggle" checked>
+        <span class="toggle-track" aria-hidden="true"></span>
+      </label>
+      <a class="back-button" href="../../index.html">← Dashboard</a>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="practice-card" aria-labelledby="currentLessonTitle">
+      <div class="practice-top">
+        <div class="title-block">
+          <span class="eyebrow">⌨️ TYPING PRACTICE</span>
+          <div class="title-line">
+            <h1 id="currentLessonTitle">Level 1 · Lesson 1</h1>
+            <span class="level-badge" id="levelBadge">LEVEL 1</span>
+          </div>
+          <p id="lessonDescription">Start with simple home-row patterns.</p>
+        </div>
+
+        <div class="lesson-controls" aria-label="Choose a typing lesson">
+          <label>
+            <span>Learning level</span>
+            <select id="levelSelect">
+              <option value="1">Level 1 · Home row</option>
+              <option value="2">Level 2 · Letter practice</option>
+              <option value="3">Level 3 · Words</option>
+              <option value="4">Level 4 · Sentences</option>
+              <option value="5">Level 5 · Punctuation</option>
+              <option value="6">Level 6 · Numbers & symbols</option>
+              <option value="7">Level 7 · Speed builder</option>
+              <option value="8">Level 8 · Paragraphs</option>
+              <option value="9">Level 9 · Advanced</option>
+              <option value="10">Level 10 · Expert</option>
+            </select>
+          </label>
+          <label class="lesson-number-label">
+            <span>Lesson</span>
+            <input id="lessonNumber" type="number" min="1" max="100" value="1" inputmode="numeric">
+          </label>
+          <button id="openLesson" class="button primary open-button" type="button">Load lesson</button>
+        </div>
+      </div>
+
+      <div class="metrics" aria-label="Live typing results">
+        <article class="metric">
+          <span class="metric-label">⏱ Time</span>
+          <strong id="timer">0:00</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">⚡ Speed</span>
+          <strong><span id="currentWpm">0</span> <small>WPM</small></strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">🎯 Accuracy</span>
+          <strong id="currentAccuracy">100%</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">✓ Correct</span>
+          <strong id="correctChars">0</strong>
+        </article>
+      </div>
+
+      <section class="prompt-area" aria-label="Typing passage">
+        <div class="prompt-heading">
+          <span>Type the text below</span>
+          <span id="progressText">0% complete</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Lesson progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack">
+          <div id="progressBar"></div>
+        </div>
+        <div class="text-display" id="textDisplay" aria-label="Text to type"></div>
+      </section>
+
+      <section class="typing-area" aria-label="Typing input">
+        <label class="input-label" for="typingInput">Your typing area</label>
+        <textarea
+          id="typingInput"
+          rows="2"
+          placeholder="Click here and start typing..."
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          aria-describedby="typingHint"
+        ></textarea>
+        <p class="typing-hint" id="typingHint" aria-live="polite">Accuracy comes before speed. Take your time.</p>
+      </section>
+
+      <div class="practice-bottom">
+        <div class="practice-actions">
+          <button class="button secondary" id="restartButton" type="button">↻ Restart</button>
+          <button class="button primary next-button" id="nextButton" type="button">Next lesson →</button>
+        </div>
+        <div class="result-inline" id="resultPanel" hidden aria-live="polite">
+          <span class="result-icon" aria-hidden="true">🎉</span>
+          <span class="result-copy">
+            <strong>Lesson complete!</strong>
+            <small id="resultMessage">Great work.</small>
+          </span>
+          <span class="result-score"><b id="resultWpm">0 WPM</b><small id="resultAccuracy">100%</small></span>
+          <button class="result-next" id="resultNextButton" type="button" aria-label="Try another lesson">→</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

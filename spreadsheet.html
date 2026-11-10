@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16865A">
+  <meta name="description" content="KidByte Spreadsheet — a simple, Excel-style spreadsheet editor.">
+  <title>KidByte Spreadsheet</title>
+  <link rel="stylesheet" href="spreadsheet.css">
+</head>
+<body class="spreadsheet-workspace">
+  <main class="main-area" aria-label="Spreadsheet workspace">
+    <section id="mainContent" class="main-content" aria-live="polite"></section>
+  </main>
+  <input id="fileInput" type="file" accept=".csv,.txt,.xlsx" hidden>
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="spreadsheet.js"></script>
+</body>
+</html>
